@@ -19,7 +19,8 @@ addons:
         packages:
             - xvfb
             - xauth
-            - libgtk-3-0 
+            - libgtk-3-0
+            - libffi
 script:
     - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
     - julia -e 'using Pkg; Pkg.build()'
