@@ -24,8 +24,7 @@ script:
     - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
     - julia -e 'using Pkg; Pkg.build()'
     - if [[ `uname` = "Linux" ]]; then TESTCMD="xvfb-run julia"; else TESTCMD="julia"; fi
-    - $TESTCMD -e 'using Pkg; Pkg.clone(pwd()); using BinDeps;
-        println(BinDeps.debug("AstroImageView"));
+    - $TESTCMD -e 'using Pkg;
         Pkg.build("AstroImageView");
         Pkg.test("AstroImageView"; coverage=true)'
 after_success:
